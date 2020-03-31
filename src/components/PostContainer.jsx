@@ -5,6 +5,7 @@ import Post from "./Post";
 
 const PostContainer = props => {
   const [posts, setPosts] = useState([]);
+  const [comments, setcomments] = useState([]);
   const [currentPost, setcurrentPost] = useState([]);
 
   // keep posts in sync
@@ -26,8 +27,8 @@ const PostContainer = props => {
       const response = await fetch(`https://www.reddit.com${currentPost}.json`);
       const json = await response.json();
 
-      console.log(json[1]);
-      // setcurrentPost(json[1]);
+      console.log(json[1].data.children);
+      setcomments(json[1].data.children);
     }
 
     if (currentPost != "") {
@@ -54,9 +55,9 @@ const PostContainer = props => {
         </Col>
         <Col xs={12} md={8}>
           <p>{currentPost}</p>
-          {/* {currentPost.data.children.map(comment => (
+          {comments.map(comment => (
             <p>{comment.data.body}</p>
-          ))} */}
+          ))}
         </Col>
       </Row>
     </div>
