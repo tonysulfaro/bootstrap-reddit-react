@@ -31,7 +31,8 @@ const PostContainer = props => {
 
       console.log(json[1].data.children);
       setcomments(json[1].data.children);
-      setPostData(json[0].data.children);
+      setPostData(json[0].data.children[0].data);
+      console.log(json[0].data.children[0].data);
     }
 
     if (currentPost != "") {
