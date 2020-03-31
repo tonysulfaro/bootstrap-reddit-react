@@ -5,7 +5,6 @@ const Post = props => {
   return (
     <Card
       onClick={() => {
-        alert(props.post_id);
         props.setcurrentPost(props.post_id);
       }}
     >
