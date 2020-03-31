@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 
 import Post from "./Post";
+import PostPreview from "./PostPreview";
 
 const PostContainer = props => {
   const [posts, setPosts] = useState([]);
   const [comments, setcomments] = useState([]);
   const [currentPost, setcurrentPost] = useState([]);
+  const [postData, setPostData] = useState();
 
   // keep posts in sync
   useEffect(() => {
@@ -29,6 +31,7 @@ const PostContainer = props => {
 
       console.log(json[1].data.children);
       setcomments(json[1].data.children);
+      setPostData(json[0].data.children);
     }
 
     if (currentPost != "") {
@@ -56,6 +59,8 @@ const PostContainer = props => {
         <Col xs={12} md={8}>
           <p>{currentPost}</p>
           <div className="post-view">
+            {postData ? <PostPreview data={postData}></PostPreview> : null}
+            {postData ? <h2>Comments</h2> : null}
             {comments.map(comment => (
               <Card>
                 <Card.Body>
