@@ -6,7 +6,7 @@ import Nav from "./components/Nav";
 import PostContainer from "./components/PostContainer";
 
 function App() {
-  const [activeSub, setactiveSub] = useState("r/all/");
+  const [activeSub, setactiveSub] = useState();
 
   return (
     <div className="App">

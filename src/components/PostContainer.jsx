@@ -25,7 +25,7 @@ const PostContainer = props => {
 
     // keep current viewing post in sync
     getRedditPosts();
-  }, []);
+  }, [props.subreddit]);
 
   useEffect(() => {
     async function getPostDetails() {
