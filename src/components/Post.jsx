@@ -3,18 +3,16 @@ import { Card } from "react-bootstrap";
 
 const Post = props => {
   return (
-    <Card>
-      <Card.Header>Quote</Card.Header>
+    <Card
+      onClick={() => {
+        alert(props.post_id);
+        props.setcurrentPost(props.post_id);
+      }}
+    >
       <Card.Body>
         <blockquote className="blockquote mb-0">
-          <p>
-            {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            posuere erat a ante.{" "}
-          </p>
-          <footer className="blockquote-footer">
-            Someone famous in <cite title="Source Title">Source Title</cite>
-          </footer>
+          <p>{JSON.stringify(props.title)}</p>
+          <footer>/r/{props.subreddit}</footer>
         </blockquote>
       </Card.Body>
     </Card>

@@ -1,3 +1,12 @@
 .pdd-sm {
   padding: 2em;
 }
+
+.post-view {
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.post-view * {
+  margin-bottom: 1em;
+}
