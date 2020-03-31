@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 .pdd-sm {
   padding: 2em;
 }

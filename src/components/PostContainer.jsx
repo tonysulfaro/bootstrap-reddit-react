@@ -55,9 +55,11 @@ const PostContainer = props => {
         </Col>
         <Col xs={12} md={8}>
           <p>{currentPost}</p>
-          {comments.map(comment => (
-            <p>{comment.data.body}</p>
-          ))}
+          <div className="post-view">
+            {comments.map(comment => (
+              <p>{comment.data.body}</p>
+            ))}
+          </div>
         </Col>
       </Row>
     </div>
