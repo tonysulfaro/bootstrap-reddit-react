@@ -58,7 +58,6 @@ const PostContainer = props => {
           </div>
         </Col>
         <Col xs={12} md={8}>
-          <p>{currentPost}</p>
           <div className="post-view">
             {postData ? <PostPreview data={postData}></PostPreview> : null}
             {postData ? <h2>Comments</h2> : null}
