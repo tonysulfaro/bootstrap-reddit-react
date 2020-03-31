@@ -13,7 +13,10 @@ const PostContainer = props => {
   // keep posts in sync
   useEffect(() => {
     async function getRedditPosts() {
-      const response = await fetch("https://www.reddit.com/r/all.json");
+      const response = await fetch(
+        `https://www.reddit.com/${props.subreddit}/.json`
+      );
+      console.log(`https://www.reddit.com/${props.subreddit}/.json`);
       const json = await response.json();
 
       console.log(json.data.children);
