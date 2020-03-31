@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 
 import Post from "./Post";
 
@@ -57,7 +57,15 @@ const PostContainer = props => {
           <p>{currentPost}</p>
           <div className="post-view">
             {comments.map(comment => (
-              <p>{comment.data.body}</p>
+              <Card>
+                <Card.Body>
+                  <Card.Text>{comment.data.body}</Card.Text>
+                  <Card.Subtitle>
+                    <strong>{comment.data.author}</strong>
+                  </Card.Subtitle>
+                  <Card.Text>Score: {comment.data.score}</Card.Text>
+                </Card.Body>
+              </Card>
             ))}
           </div>
         </Col>
