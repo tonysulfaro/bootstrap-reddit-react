@@ -5,7 +5,9 @@ const PostPreview = props => {
   return (
     <a href={props.data.url} target="__blank">
       <Card>
-        <Card.Img variant="top" src={props.data.thumbnail} />
+        {props.data.thumbnail !== "self" && props.data.thumbnail ? (
+          <Card.Img variant="top" src={props.data.thumbnail} />
+        ) : null}
         <Card.Body>
           <Card.Title>{props.data.title}</Card.Title>
           <Card.Text>
