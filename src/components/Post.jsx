@@ -1,20 +1,27 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Media } from "react-bootstrap";
 
 const Post = props => {
   return (
-    <Card
+    <Media
       onClick={() => {
         props.setcurrentPost(props.post_id);
       }}
     >
-      <Card.Body>
-        <blockquote className="blockquote mb-0">
-          <p>{JSON.stringify(props.title)}</p>
-          <footer>/r/{props.subreddit}</footer>
-        </blockquote>
-      </Card.Body>
-    </Card>
+      {props.thumbnail !== "self" && props.thumbnail ? (
+        <img
+          width={64}
+          height={64}
+          className="mr-3"
+          src={props.thumbnail}
+          alt="Generic placeholder"
+        />
+      ) : null}
+      <Media.Body>
+        <h5>{JSON.stringify(props.title)}</h5>
+        <p>/r/{props.subreddit}</p>
+      </Media.Body>
+    </Media>
   );
 };
 

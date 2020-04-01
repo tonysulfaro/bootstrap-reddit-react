@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card, Media } from "react-bootstrap";
 
 import Post from "./Post";
 import PostPreview from "./PostPreview";
@@ -49,6 +49,7 @@ const PostContainer = props => {
               <Post
                 key={post.data.id}
                 title={post.data.title}
+                thumbnail={post.data.thumbnail}
                 subreddit={post.data.subreddit}
                 post_id={post.data.permalink}
                 setcurrentPost={setcurrentPost}
@@ -61,15 +62,14 @@ const PostContainer = props => {
             {postData ? <PostPreview data={postData}></PostPreview> : null}
             {postData ? <h2>Comments</h2> : null}
             {comments.map(comment => (
-              <Card>
-                <Card.Body>
-                  <Card.Text>{comment.data.body}</Card.Text>
-                  <Card.Subtitle>
-                    <strong>{comment.data.author}</strong>
-                  </Card.Subtitle>
-                  <Card.Text>Score: {comment.data.score}</Card.Text>
-                </Card.Body>
-              </Card>
+              <Media>
+                <Media.Body>
+                  <h5>
+                    {comment.data.author} - Score: {comment.data.score}
+                  </h5>
+                  <p>{comment.data.body}</p>
+                </Media.Body>
+              </Media>
             ))}
           </div>
         </Col>
