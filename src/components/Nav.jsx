@@ -16,7 +16,7 @@ const Nav = props => {
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">Reddit Client</Navbar.Brand>
+      <Navbar.Brand href="#home">Client for Reddit</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <NavDropdown title="Subreddit" id="basic-nav-dropdown">
         {subreddits.map(subreddit => (
