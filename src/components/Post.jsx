@@ -14,7 +14,7 @@ const Post = props => {
           height={64}
           className="mr-3"
           src={props.thumbnail}
-          alt="Generic placeholder"
+          alt="placeholder"
         />
       ) : null}
       <Media.Body>
