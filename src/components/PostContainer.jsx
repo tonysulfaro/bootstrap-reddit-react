@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 
 import Post from "./Post";
 import PostPreview from "./PostPreview";
@@ -16,10 +16,8 @@ const PostContainer = props => {
       const response = await fetch(
         `https://www.reddit.com/${props.subreddit}/.json`
       );
-      console.log(`https://www.reddit.com/${props.subreddit}/.json`);
       const json = await response.json();
 
-      console.log(json.data.children);
       setPosts(json.data.children);
     }
 
@@ -32,13 +30,11 @@ const PostContainer = props => {
       const response = await fetch(`https://www.reddit.com${currentPost}.json`);
       const json = await response.json();
 
-      console.log(json[1].data.children);
       setcomments(json[1].data.children);
       setPostData(json[0].data.children[0].data);
-      console.log(json[0].data.children[0].data);
     }
 
-    if (currentPost != "") {
+    if (currentPost !== "") {
       getPostDetails();
     }
   }, [currentPost]);

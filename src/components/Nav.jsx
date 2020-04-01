@@ -8,7 +8,6 @@ const Nav = props => {
     async function getSubreddits() {
       const response = await fetch("https://www.reddit.com/subreddits/.json");
       const json = await response.json();
-      console.log(json.data.children);
       setSubreddits(json.data.children);
     }
 
